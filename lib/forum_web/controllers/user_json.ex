@@ -19,7 +19,8 @@ defmodule ForumWeb.UserJSON do
     %{
       id: user.id,
       name: user.name,
-      email: user.email
+      email: user.email,
+      posts: for(post <- user.posts, do: ForumWeb.PostJSON.data(post))
     }
   end
 end
